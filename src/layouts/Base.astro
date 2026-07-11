@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const { title = 'Phalanx Racing', desc = 'TEKNOFEST 2027 Efficiency Challenge' } = Astro.props;
+const { title = 'Phalanx Racing', desc = 'TEKNOFEST 2027 Efficiency Challenge — elektrikli verimlilik aracı geliştiren öğrenci takımı' } = Astro.props;
 const path = Astro.url.pathname;
 ---
 <!doctype html>
@@ -18,17 +18,23 @@ const path = Astro.url.pathname;
   <nav>
     <div class="wrap nav-in">
       <a class="brand" href="/">PHALANX<small>RACING</small></a>
-      <div class="links">
+      <button class="burger" id="burger" aria-label="Menü">&#9776;</button>
+      <div class="links" id="links">
         <a href="/#road">Yol Haritası</a>
         <a href="/build-log" class={path.startsWith('/build-log') ? 'active' : ''}>Build-log</a>
         <a href="/#team">Takım</a>
+        <a href="/#sponsor">Sponsorlar</a>
         <a href="/#contact">İletişim</a>
       </div>
     </div>
   </nav>
-  <main>
-    <slot />
-  </main>
+  <main><slot /></main>
   <footer>© 2026 Phalanx Racing · TEKNOFEST 2027 Efficiency Challenge</footer>
+  <script>
+    const b = document.getElementById('burger');
+    const l = document.getElementById('links');
+    b && b.addEventListener('click', () => l && l.classList.toggle('open'));
+    l && l.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => l.classList.remove('open')));
+  </script>
 </body>
 </html>

@@ -1,13 +1,140 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Phalanx Racing">
-  <div class="wrap page" style="text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center">
-    <span class="eyebrow">TEKNOFEST 2027 · Efficiency Challenge</span>
-    <h1 style="font-size:clamp(44px,9vw,90px)"><span class="gold">PHALANX</span> RACING</h1>
-    <p class="lead" style="margin:14px auto 30px">Sıfırdan bir elektrikli verimlilik aracı inşa eden, disiplinler arası bir öğrenci takımı.</p>
-    <div>
-      <a class="back" href="/build-log" style="border:1px solid var(--gold);padding:12px 24px">Build-log →</a>
+<Base title="Phalanx Racing — TEKNOFEST 2027 Efficiency Challenge">
+
+  <header class="hero" id="top">
+    <svg class="claw" viewBox="0 0 400 300" fill="none" aria-hidden="true"><path d="M40 260c40-70 60-140 55-230M110 270c30-70 40-150 30-235M180 275c20-75 22-155 8-238M250 270c10-75 5-155-12-235" stroke="#BC8329" stroke-width="10" stroke-linecap="round"/></svg>
+    <div class="wrap hero-in">
+      <span class="eyebrow">TEKNOFEST 2027 · Efficiency Challenge</span>
+      <h1><span class="gold">PHALANX</span> RACING</h1>
+      <p class="sub">Uluslararası Elektrikli Araç Yarışları — Elektromobil</p>
+      <p class="tag">Sıfırdan bir elektrikli verimlilik aracı inşa eden, disiplinler arası bir öğrenci takımı. Atölyeden yarış pistine — her şeyi biz kuruyoruz.</p>
+      <div class="cta">
+        <a href="#road" class="btn solid">Yol Haritası</a>
+        <a href="/build-log" class="btn">Build-log</a>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <div class="stats"><div class="wrap stats-in">
+    <div class="stat"><div class="n gold">2027</div><div class="k">Hedef Yarış</div></div>
+    <div class="stat"><div class="n gold">5</div><div class="k">Alt Takım</div></div>
+    <div class="stat"><div class="n gold">19</div><div class="k">Üye</div></div>
+    <div class="stat"><div class="n gold">1.</div><div class="k">Sezon</div></div>
+  </div></div>
+
+  <section class="blk" id="road">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Yolculuk</span><h2>Yol Haritası</h2></div>
+      <div class="road">
+        <div class="phase"><div class="p">Temmuz 2026</div><h3>Temel & Altyapı</h3><p>Eğitim programları, portfolyo projeleri, atölye kararı ve takım kimliği.</p></div>
+        <div class="phase"><div class="p">Ağustos–Eylül 2026</div><h3>Konsept Tasarım</h3><p>Eğitimlerin sürmesi, yeni üye alımı, alt takım konseptleri ve kıyaslama analizi.</p></div>
+        <div class="phase"><div class="p">Ekim–Kasım 2026</div><h3>Detay Tasarım</h3><p>Kural incelemesi, kaba araç mimarisi, danışman kaydı. <b class="hl">Şasi üretimine başlangıç (~Kasım).</b></p></div>
+        <div class="phase mile"><div class="p">◆ Aralık–Şubat 2027</div><h3>Tasarım Dondurma</h3><p>Tam CAD, analizler, tedarik listesi ve maliyet netleşir.</p></div>
+        <div class="phase"><div class="p">Mart–Mayıs 2027</div><h3>İmalat + TTR</h3><p>Başvuru, Takım Gelişim Videosu, Teknik Tasarım Raporu ve üretim.</p></div>
+        <div class="phase"><div class="p">Mayıs–Temmuz 2027</div><h3>Test & Onay</h3><p>Sürüş ve fren testleri, Teknik Onay Videosu.</p></div>
+        <div class="phase mile"><div class="p">◆ Eylül–Ekim 2027</div><h3>Final — Şanlıurfa</h3><p>Yarış haftası ve TEKNOFEST finalleri.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt" id="team">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Ekip</span><h2>Takım</h2></div>
+      <div class="team">
+        <div class="mem"><div class="role">Baş Mühendis</div><h3>Ege Şeker</h3></div>
+        <div class="mem"><div class="role">Takım Direktörü</div><h3>Ebru Tokatlı</h3></div>
+        <div class="mem"><div class="role">Kaptan · Aero-Kompozit</div><h3>Ayberk Şahin</h3></div>
+        <div class="mem"><div class="role">Şasi-Süspansiyon</div><h3>İsmail Öztürk</h3></div>
+        <div class="mem"><div class="role">Elektronik</div><h3>Burak Furkan Koç</h3></div>
+        <div class="mem"><div class="role">Powertrain</div><h3>Ebrar Berrak Elmalı</h3></div>
+        <div class="mem"><div class="role">Medya & Tanıtım</div><h3>M. Yiğit Akgün</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="sponsor">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Birlikte kazanalım</span><h2>Sponsorluk</h2></div>
+      <div class="tiers">
+        <div class="tier feat"><div class="t">Platin</div><ul>
+          <li>Araçta büyük logo + takım kıyafeti</li><li>Tüm sosyal medya & website ana sponsor</li><li>Etkinlik & teknik gezi önceliği</li><li>Özel teşekkür içeriği</li></ul></div>
+        <div class="tier"><div class="t">Altın</div><ul>
+          <li>Araçta orta boy logo</li><li>Sosyal medya paylaşımları</li><li>Website sponsor sayfası</li></ul></div>
+        <div class="tier"><div class="t">Gümüş</div><ul>
+          <li>Website'de logo</li><li>Sosyal medyada anma</li><li>Teşekkür sertifikası</li></ul></div>
+      </div>
+      <div class="support"><b>Nakit dışı destek de değerlidir:</b> atölye/mekan erişimi, ekipman ve hammadde, üyelerimize staj imkânı. Sizin için en uygun katkıyı birlikte belirleyelim.</div>
+    </div>
+  </section>
+
+  <section class="blk alt" id="contact">
+    <div class="wrap contact-in">
+      <span class="eyebrow">İletişim</span>
+      <h2>Bize ulaşın</h2>
+      <p>Sorularınız, iş birliği önerileri veya bize ulaşmak için yazın. Kısa bir mesajınız bile bizim için değerli.</p>
+      <a class="mail" href="mailto:info.phalanxracing@gmail.com">info.phalanxracing@gmail.com</a>
+      <p class="uni">İstanbul Sağlık ve Teknoloji Üniversitesi · İstanbul</p>
+      <a class="btn solid" href="mailto:info.phalanxracing@gmail.com">Mail Gönder</a>
+    </div>
+  </section>
+
+<style>
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(120% 90% at 80% 10%,rgba(38,26,50,.9),rgba(13,17,20,1) 60%)}
+.hero .claw{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:60%;max-width:720px;opacity:.14;pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:720px;padding:60px 0}
+.hero h1{font-size:clamp(44px,8vw,92px);line-height:.98;font-weight:700;text-transform:uppercase;margin:14px 0 8px}
+.hero .sub{font-family:'Chakra Petch';font-size:clamp(15px,2.2vw,20px);color:var(--cream);letter-spacing:.04em}
+.hero .tag{color:var(--muted);max-width:520px;margin:16px 0 30px;font-size:16px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 18px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:'Chakra Petch';font-size:34px;font-weight:700}
+.stat .k{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:4px}
+
+.blk{padding:84px 0}
+.alt{background:linear-gradient(180deg,var(--bg) 0%,#160f1f 50%,var(--bg) 100%)}
+.sec-head{margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,5vw,44px);text-transform:uppercase;font-weight:700;margin-top:8px}
+
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.phase{border:1px solid var(--line);padding:22px;background:rgba(38,26,50,.35)}
+.phase .p{font-family:'Chakra Petch';font-size:12px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.phase h3{font-size:19px;margin:8px 0;text-transform:uppercase;font-weight:600}
+.phase p{font-size:14px;color:var(--muted)}
+.phase .hl{color:var(--yellow);font-weight:600}
+.phase.mile{border-color:var(--yellow);background:rgba(240,237,114,.06)}
+.phase.mile .p{color:var(--yellow)}
+
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.mem{border:1px solid var(--line);padding:18px;background:rgba(13,17,20,.5)}
+.mem .role{font-family:'Chakra Petch';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mem h3{font-size:17px;margin-top:6px;font-weight:600}
+
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:26px}
+.tier{border:1px solid var(--line);padding:26px 22px;background:rgba(38,26,50,.35)}
+.tier.feat{border:1px solid var(--gold);background:rgba(188,131,41,.08)}
+.tier .t{font-family:'Chakra Petch';text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:20px}
+.tier.feat .t{color:var(--yellow)}
+.tier ul{list-style:none;margin-top:16px}
+.tier li{font-size:14px;color:var(--muted);padding:7px 0;border-bottom:1px solid rgba(188,131,41,.14)}
+.support{border:1px dashed var(--line);padding:20px;font-size:14px;color:var(--muted)}
+.support b{color:var(--cream);font-weight:600}
+
+.contact-in{text-align:center;max-width:640px;margin:0 auto}
+.contact-in h2{margin:8px 0 14px}
+.contact-in p{color:var(--muted);margin-bottom:14px}
+.contact-in .mail{display:block;color:var(--gold);font-family:'Chakra Petch';letter-spacing:.06em;font-size:20px;margin-bottom:10px}
+.contact-in .uni{font-size:13px;margin-bottom:22px}
+
+@media(max-width:640px){
+  .stats-in{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .stat{border-bottom:1px solid var(--line)}
+}
+</style>
 </Base>
