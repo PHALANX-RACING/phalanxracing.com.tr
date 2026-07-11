@@ -23,7 +23,7 @@ const path = Astro.url.pathname;
       <div class="links" id="links">
         <a href="/#road">Yol Haritası</a>
         <a href="/build-log" class={path.startsWith('/build-log') ? 'active' : ''}>Build-log</a>
-        <a href="/#team">Takım</a>
+        <a href="/takim" class={path.startsWith('/takim') ? 'active' : ''}>Takım</a>
         <a href="/#sponsor">Sponsorlar</a>
         <a href="/#contact">İletişim</a>
       </div>
