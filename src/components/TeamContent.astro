@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui, localizedPath } from '../i18n.js';
+import { groups, slug, initials, groupName, roleName, deptName } from '../data/team.js';
+const { lang = 'tr' } = Astro.props;
+const t = ui[lang];
+const tp = t.teamPage;
+const L = (p) => localizedPath(p, lang);
+---
+<Base title={tp.title} desc={tp.desc} lang={lang}>
+  <div class="wrap page">
+    <a class="back" href={`${L('/')}#team`}>{tp.back}</a>
+    <span class="eyebrow">{tp.eyebrow}</span>
+    <h1>{tp.h1}</h1>
+    <p class="lead">{tp.lead}</p>
+
+    {groups.map((g) => (
+      <div class="grp">
+        <div class="grp-head">{groupName(g.name, lang)}</div>
+        <div class="roster">
+          {g.members.map((m) => (
+            <a class={m.lead ? 'pcard lead' : 'pcard'} href={L(`/takim/${slug(m.n)}`)}>
+              <div class="avatar">
+                <span class="ini">{initials(m.n)}</span>
+                <img src={`/team/${slug(m.n)}.jpg`} alt={m.n} loading="lazy" onerror="this.style.display='none'" />
+              </div>
+              <h3>{m.n}</h3>
+              <div class="r">{roleName(m.r, lang)}</div>
+              <div class="d">{deptName(m.d, lang)}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+<style>
+.grp{margin-bottom:40px}
+.grp-head{font-family:'Chakra Petch';text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:18px;color:var(--cream);border-left:3px solid var(--gold);padding-left:12px;margin-bottom:18px}
+.roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.pcard{border:1px solid var(--line);background:rgba(13,17,20,.5);padding:22px 16px;text-align:center;transition:.2s;display:block;color:inherit;text-decoration:none}
+.pcard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.pcard.lead{border-color:var(--gold);background:rgba(188,131,41,.07)}
+.avatar{width:92px;height:92px;border-radius:50%;margin:0 auto 14px;position:relative;overflow:hidden;background:linear-gradient(135deg,#3a2b18,#7C3E08);display:flex;align-items:center;justify-content:center;border:2px solid var(--line)}
+.pcard.lead .avatar{border-color:var(--gold)}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.avatar .ini{font-family:'Chakra Petch';font-weight:700;font-size:27px;color:var(--cream);letter-spacing:.02em}
+.pcard h3{font-size:16px;font-weight:600;margin-bottom:4px}
+.pcard .r{font-family:'Chakra Petch';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.pcard .d{font-size:12px;color:var(--muted)}
+</style>
+</Base>

@@ -1,0 +1,20 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { ui, localizedPath, formatDate } from '../i18n.js';
+const { lang = 'tr', post } = Astro.props;
+const t = ui[lang];
+const bl = t.buildlog;
+const L = (p) => localizedPath(p, lang);
+const { Content } = await render(post);
+---
+<Base title={`${post.data.title} — Phalanx Racing`} desc={post.data.summary} lang={lang}>
+  <div class="wrap page">
+    <article class="post">
+      <a class="back" href={L('/build-log')}>{bl.back}</a>
+      <div class="meta">{post.data.tag ?? bl.defaultTag} · {formatDate(post.data.date, lang)}</div>
+      <h1>{post.data.title}</h1>
+      <div class="body"><Content /></div>
+    </article>
+  </div>
+</Base>

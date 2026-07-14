@@ -1,34 +1,52 @@
 ---
 import '../styles/global.css';
-const { title = 'Phalanx Racing', desc = 'TEKNOFEST 2027 Efficiency Challenge — elektrikli verimlilik aracı geliştiren öğrenci takımı', image = '/og.png' } = Astro.props;
+import { ui, localizedPath, localeTag, ogLocale } from '../i18n.js';
+
+const { title = 'Phalanx Racing', desc, image = '/og.png', lang = 'tr' } = Astro.props;
+const t = ui[lang];
+const description = desc ?? t.baseDesc;
+
 const path = Astro.url.pathname;
 const site = Astro.site ?? new URL('https://phalanxracing.com.tr');
 const canonical = new URL(path, site).href;
 const ogImage = new URL(image, site).href;
+
+// Prefix helper: keep every in-page link on the current language.
+const L = (p) => localizedPath(p, lang);
+
+// hreflang alternates for this page.
+const trUrl = new URL(localizedPath(path, 'tr'), site).href;
+const enUrl = new URL(localizedPath(path, 'en'), site).href;
+
+const activeStart = (prefix) => path.startsWith(localizedPath(prefix, lang)) ? 'active' : '';
 ---
 <!doctype html>
-<html lang="tr">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
-  <meta name="description" content={desc} />
+  <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  <link rel="alternate" hreflang="tr" href={trUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="x-default" href={trUrl} />
   <meta name="theme-color" content="#0D1114" />
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Phalanx Racing" />
-  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:locale" content={ogLocale[lang]} />
+  <meta property="og:locale:alternate" content={ogLocale[lang === 'tr' ? 'en' : 'tr']} />
   <meta property="og:url" content={canonical} />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={desc} />
+  <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={desc} />
+  <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,32 +55,38 @@ const ogImage = new URL(image, site).href;
     "@context": "https://schema.org",
     "@type": "SportsTeam",
     "name": "Phalanx Racing",
-    "sport": "Elektrikli Araç Yarışları",
+    "sport": lang === 'en' ? "Electric Vehicle Racing" : "Elektrikli Araç Yarışları",
     "url": "https://phalanxracing.com.tr",
     "logo": "https://phalanxracing.com.tr/logo.svg",
-    "description": "İstanbul Sağlık ve Teknoloji Üniversitesi öğrencilerinden oluşan, TEKNOFEST 2027 Uluslararası Elektrikli Araç Yarışları (Efficiency Challenge) hedefli öğrenci takımı.",
-    "memberOf": { "@type": "CollegeOrUniversity", "name": "İstanbul Sağlık ve Teknoloji Üniversitesi" },
+    "description": t.ldDesc,
+    "memberOf": { "@type": "CollegeOrUniversity", "name": lang === 'en' ? "Istanbul Health and Technology University" : "İstanbul Sağlık ve Teknoloji Üniversitesi" },
     "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "İstanbul", "addressCountry": "TR" } }
   })} />
 </head>
 <body>
   <nav>
     <div class="wrap nav-in">
-      <a class="brand" href="/"><img src="/logo.svg" alt="" class="brand-logo" /><span class="brand-txt">PHALANX<small>RACING</small></span></a>
-      <button class="burger" id="burger" aria-label="Menü">&#9776;</button>
-      <div class="links" id="links">
-        <a href="/#road">Yol Haritası</a>
-        <a href="/build-log" class={path.startsWith('/build-log') ? 'active' : ''}>Build-log</a>
-        <a href="/takim" class={path.startsWith('/takim') ? 'active' : ''}>Takım</a>
-        <a href="/#sponsor">Sponsorlar</a>
-        <a href="/#contact">İletişim</a>
+      <a class="brand" href={L('/')}><img src="/logo.svg" alt="" class="brand-logo" /><span class="brand-txt">PHALANX<small>RACING</small></span></a>
+      <div class="nav-right">
+        <div class="links" id="links">
+          <a href={`${L('/')}#road`}>{t.nav.road}</a>
+          <a href={L('/build-log')} class={activeStart('/build-log')}>{t.nav.buildlog}</a>
+          <a href={L('/takim')} class={activeStart('/takim')}>{t.nav.team}</a>
+          <a href={`${L('/')}#sponsor`}>{t.nav.sponsor}</a>
+          <a href={`${L('/')}#contact`}>{t.nav.contact}</a>
+        </div>
+        <div class="langtog" role="group" aria-label="Language">
+          <a href={localizedPath(path, 'tr')} hreflang="tr" class={lang === 'tr' ? 'on' : ''} aria-current={lang === 'tr' ? 'true' : 'false'}>TR</a>
+          <a href={localizedPath(path, 'en')} hreflang="en" class={lang === 'en' ? 'on' : ''} aria-current={lang === 'en' ? 'true' : 'false'}>EN</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
       </div>
     </div>
   </nav>
   <main><slot /></main>
   <footer>
     <img src="/logo.svg" alt="Phalanx Racing" style="height:52px;width:auto;margin:0 auto 12px;display:block;opacity:.9" />
-    <div>© 2026 Phalanx Racing · TEKNOFEST 2027 Efficiency Challenge</div>
+    <div>{t.footer}</div>
   </footer>
   <script>
     const b = document.getElementById('burger');

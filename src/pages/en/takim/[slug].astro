@@ -1,6 +1,6 @@
 ---
-import MemberContent from '../../components/MemberContent.astro';
-import { people } from '../../data/team.js';
+import MemberContent from '../../../components/MemberContent.astro';
+import { people } from '../../../data/team.js';
 
 export function getStaticPaths() {
   return people().map((p) => ({ params: { slug: p.slug }, props: { person: p } }));
@@ -8,4 +8,4 @@ export function getStaticPaths() {
 
 const { person } = Astro.props;
 ---
-<MemberContent lang="tr" person={person} />
+<MemberContent lang="en" person={person} />

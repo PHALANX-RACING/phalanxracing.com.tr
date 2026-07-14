@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { ui, localizedPath, formatDate } from '../i18n.js';
+const { lang = 'tr' } = Astro.props;
+const t = ui[lang];
+const bl = t.buildlog;
+const L = (p) => localizedPath(p, lang);
+
+// Posts live in src/content/buildlog/<lang>/... — filter by that prefix.
+const posts = (await getCollection('buildlog'))
+  .filter((p) => p.id.startsWith(`${lang}/`))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const postSlug = (id) => id.replace(/^(tr|en)\//, '');
+---
+<Base title={bl.title} desc={bl.desc} lang={lang}>
+  <div class="wrap page">
+    <span class="eyebrow">{bl.eyebrow}</span>
+    <h1>{bl.h1}</h1>
+    <p class="lead">{bl.lead}</p>
+
+    <div class="timeline">
+      {posts.map((p) => (
+        <a class="tl-item" href={L(`/build-log/${postSlug(p.id)}/`)}>
+          <div class="tl-date">{formatDate(p.data.date, lang)}{p.data.tag ? ` · ${p.data.tag}` : ''}</div>
+          <h3 class="tl-h">{p.data.title}</h3>
+          <p class="tl-p">{p.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+
+<style>
+.timeline{position:relative;margin-top:26px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:12px;width:2px;background:linear-gradient(180deg,var(--gold) 0%,rgba(188,131,41,.15) 100%)}
+.tl-item{position:relative;display:block;padding-bottom:34px;color:inherit;text-decoration:none}
+.tl-item::before{content:"";position:absolute;left:-34px;top:4px;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,#F0ED72,#BC8329);box-shadow:0 0 0 4px var(--bg)}
+.tl-item:last-child{padding-bottom:6px}
+.tl-date{font-family:'Chakra Petch';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.tl-h{font-family:'Chakra Petch';font-size:19px;text-transform:uppercase;font-weight:600;margin:5px 0 6px;color:var(--cream);transition:color .2s}
+.tl-item:hover .tl-h{color:var(--yellow)}
+.tl-p{font-size:14px;color:var(--muted);max-width:640px}
+</style>
+</Base>

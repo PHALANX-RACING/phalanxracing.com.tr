@@ -33,6 +33,11 @@ nav::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;b
 .links a{color:var(--muted);transition:color .2s}
 .links a:hover,.links a.active{color:var(--yellow)}
 .burger{display:none;font-size:26px;color:var(--gold);background:none;border:0;cursor:pointer}
+.nav-right{display:flex;align-items:center;gap:22px}
+.langtog{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:'Chakra Petch';font-size:12px;font-weight:700;letter-spacing:.08em}
+.langtog a{padding:5px 12px;color:var(--muted);transition:.2s;line-height:1.4}
+.langtog a:hover{color:var(--cream)}
+.langtog a.on{background:var(--gold);color:#0D1114}
 
 .page{padding:70px 0 90px}
 .page h1{font-size:clamp(34px,6vw,56px);text-transform:uppercase;font-weight:700;margin:10px 0 6px}

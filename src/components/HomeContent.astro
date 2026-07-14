@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui, localizedPath } from '../i18n.js';
+const { lang = 'tr' } = Astro.props;
+const t = ui[lang];
+const h = t.home;
+const L = (p) => localizedPath(p, lang);
+---
+<Base title={h.title} desc={h.desc} lang={lang}>
+
+  <header class="hero" id="top">
+    <img src="/logo.svg" alt="" aria-hidden="true" class="hero-bg" />
+    <div class="wrap hero-in">
+      <span class="eyebrow">{h.eyebrow}</span>
+      <h1><span class="gold">PHALANX</span> RACING</h1>
+      <p class="sub">{h.sub}</p>
+      <p class="tag">{h.tag}</p>
+      <div class="cta">
+        <a href="#road" class="btn solid">{h.ctaRoad}</a>
+        <a href={L('/build-log')} class="btn">{h.ctaLog}</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats"><div class="wrap stats-in">
+    {h.stats.map((s) => (
+      <div class="stat"><div class="n gold">{s.n}</div><div class="k">{s.k}</div></div>
+    ))}
+  </div></div>
+
+  <section class="blk" id="road">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">{h.roadEyebrow}</span><h2>{h.roadHead}</h2></div>
+      <div class="road">
+        {h.phases.map((ph) => (
+          <div class={ph.mile ? 'phase mile' : 'phase'}>
+            <div class="p">{ph.p}</div>
+            <h3>{ph.h}</h3>
+            <p>{ph.d}{ph.hl && <b class="hl">{ph.hl}</b>}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt" id="team">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">{h.teamEyebrow}</span><h2>{h.teamHead}</h2></div>
+      <div class="team">
+        {h.featured.map((m) => (
+          <div class="mem"><div class="role">{m.role}</div><h3>{m.name}</h3></div>
+        ))}
+      </div>
+      <div class="team-cta"><a href={L('/takim')} class="btn">{h.teamCta}</a></div>
+    </div>
+  </section>
+
+  <section class="blk" id="sponsor">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">{h.sponsorEyebrow}</span><h2>{h.sponsorHead}</h2></div>
+      <div class="tiers">
+        {h.tiers.map((tier) => (
+          <div class={tier.feat ? 'tier feat' : 'tier'}>
+            <div class="t">{tier.t}</div>
+            <ul>{tier.items.map((it) => <li>{it}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <div class="support"><b>{h.supportBold}</b>{h.supportRest}</div>
+    </div>
+  </section>
+
+  <section class="blk alt" id="contact">
+    <div class="wrap contact-in">
+      <span class="eyebrow">{h.contactEyebrow}</span>
+      <h2>{h.contactHead}</h2>
+      <p>{h.contactText}</p>
+      <a class="mail" href="mailto:info.phalanxracing@gmail.com">info.phalanxracing@gmail.com</a>
+      <p class="uni">{h.uni}</p>
+      <a class="btn solid" href="mailto:info.phalanxracing@gmail.com">{h.contactBtn}</a>
+    </div>
+  </section>
+
+<style>
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(120% 90% at 80% 10%,rgba(38,26,50,.9),rgba(13,17,20,1) 60%)}
+.hero-in{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:60px 22px;text-align:center}
+.hero-bg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(300px,82vw,1700px);opacity:.07;pointer-events:none;z-index:0}
+.hero::before{content:"";position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:70vw;height:70vw;max-width:1000px;max-height:1000px;background:radial-gradient(circle,rgba(188,131,41,.14),rgba(188,131,41,0) 60%);z-index:0;pointer-events:none}
+
+.hero h1{font-size:clamp(44px,8vw,92px);line-height:.98;font-weight:700;text-transform:uppercase;margin:14px 0 8px}
+.hero h1 .gold{background:linear-gradient(105deg,#B37E27 0%,#D8A93E 26%,#F3E29A 44%,#FCF3CE 50%,#F3E29A 56%,#D8A93E 74%,#B37E27 100%);background-size:300% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
+@keyframes shimmer{from{background-position:300% center}to{background-position:0% center}}
+@media(prefers-reduced-motion:reduce){.hero h1 .gold{animation:none}}
+.hero .sub{font-family:'Chakra Petch';font-size:clamp(15px,2.2vw,20px);color:var(--cream);letter-spacing:.04em}
+.hero .tag{color:var(--muted);max-width:540px;margin:16px auto 30px;font-size:16px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 18px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:'Chakra Petch';font-size:34px;font-weight:700}
+.stat .k{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:4px}
+
+.blk{padding:84px 0}
+.alt{background:linear-gradient(180deg,var(--bg) 0%,#160f1f 50%,var(--bg) 100%)}
+.sec-head{margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,5vw,44px);text-transform:uppercase;font-weight:700;margin-top:8px}
+
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.phase{border:1px solid var(--line);padding:22px;background:rgba(38,26,50,.35)}
+.phase .p{font-family:'Chakra Petch';font-size:12px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.phase h3{font-size:19px;margin:8px 0;text-transform:uppercase;font-weight:600}
+.phase p{font-size:14px;color:var(--muted)}
+.phase .hl{color:var(--yellow);font-weight:600}
+.phase.mile{border-color:var(--yellow);background:rgba(240,237,114,.06)}
+.phase.mile .p{color:var(--yellow)}
+
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.mem{border:1px solid var(--line);padding:18px;background:rgba(13,17,20,.5)}
+.mem .role{font-family:'Chakra Petch';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mem h3{font-size:17px;margin-top:6px;font-weight:600}
+.team-cta{margin-top:26px}
+
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:26px}
+.tier{border:1px solid var(--line);padding:26px 22px;background:rgba(38,26,50,.35)}
+.tier.feat{border:1px solid var(--gold);background:rgba(188,131,41,.08)}
+.tier .t{font-family:'Chakra Petch';text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:20px}
+.tier.feat .t{color:var(--yellow)}
+.tier ul{list-style:none;margin-top:16px}
+.tier li{font-size:14px;color:var(--muted);padding:7px 0;border-bottom:1px solid rgba(188,131,41,.14)}
+.support{border:1px dashed var(--line);padding:20px;font-size:14px;color:var(--muted)}
+.support b{color:var(--cream);font-weight:600}
+
+.contact-in{text-align:center;max-width:640px;margin:0 auto}
+.contact-in h2{margin:8px 0 14px}
+.contact-in p{color:var(--muted);margin-bottom:14px}
+.contact-in .mail{display:block;color:var(--gold);font-family:'Chakra Petch';letter-spacing:.06em;font-size:20px;margin-bottom:10px}
+.contact-in .uni{font-size:13px;margin-bottom:22px}
+
+@media(max-width:640px){
+  .stats-in{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .stat{border-bottom:1px solid var(--line)}
+}
+</style>
+</Base>
