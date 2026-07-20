@@ -11,6 +11,7 @@ export const groups = [
   { name: 'Yönetim', members: [
     { n: 'Ege Şeker', r: 'Baş Mühendis', d: 'Makine Müh. (İng.) 4. Sınıf', lead: true },
     { n: 'Ebru Tokatlı', r: 'Takım Direktörü', d: 'Makine Müh. (İng.) 2. Sınıf', lead: true },
+    { n: 'Ayberk Şahin', r: 'Kaptan', d: 'Makine Müh. (İng.) 2. Sınıf', lead: true },
   ]},
   { name: 'Aero-Kompozit', members: [
     { n: 'Ayberk Şahin', r: 'Kaptan · Lider', d: 'Makine Müh. (İng.) 2. Sınıf', lead: true },
@@ -66,6 +67,7 @@ export const roleEn = {
   'Ba\u015f M\u00fchendis': 'Chief Engineer',
   'Tak\u0131m Direkt\u00f6r\u00fc': 'Team Director',
   'Kaptan \u00b7 Lider': 'Captain \u00b7 Lead',
+  'Kaptan': 'Captain',
   '\u00dcye': 'Member',
   'Lider': 'Lead',
   'EMC / \u0130zolasyon': 'EMC / Isolation',
