@@ -128,20 +128,28 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
 
 .btn.flow{
   display:inline-block;margin-top:14px;position:relative;overflow:hidden;
-  border:1px solid var(--gold);color:var(--cream);text-shadow:0 1px 3px rgba(0,0,0,.7);
+  border:1px solid var(--gold);color:var(--yellow);font-weight:700;
+  text-shadow:0 1px 4px rgba(0,0,0,.9),0 0 10px rgba(0,0,0,.6);
   box-shadow:0 0 22px rgba(188,131,41,.4);
   background-color:#150f08;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpolygon points='0,0 17,0 34,17 17,34 0,34 12,17' fill='%23BC8329'/%3E%3C/svg%3E");
-  background-size:34px 34px;background-repeat:repeat;
-  animation:flowchevron 2.4s linear infinite;
+  background-image:
+    linear-gradient(rgba(8,6,3,.6),rgba(8,6,3,.6)),
+    repeating-linear-gradient(48deg,#D8A93E 0 14px,#17110a 14px 28px);
+  background-size:100% 100%,40px 40px;
+  background-repeat:no-repeat,repeat;
+  background-position:0 0,0 0;
+  animation:flowchevron 3s linear infinite;
 }
 .btn.flow:hover{
-  border-color:var(--yellow);box-shadow:0 0 28px rgba(188,131,41,.6);color:var(--cream);
+  border-color:var(--yellow);box-shadow:0 0 28px rgba(188,131,41,.6);color:var(--yellow);
   background-color:#150f08;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpolygon points='0,0 17,0 34,17 17,34 0,34 12,17' fill='%23D8A93E'/%3E%3C/svg%3E");
-  background-size:34px 34px;background-repeat:repeat;
+  background-image:
+    linear-gradient(rgba(8,6,3,.45),rgba(8,6,3,.45)),
+    repeating-linear-gradient(48deg,#F0ED72 0 14px,#17110a 14px 28px);
+  background-size:100% 100%,40px 40px;
+  background-repeat:no-repeat,repeat;
 }
-@keyframes flowchevron{from{background-position:0 0}to{background-position:34px 0}}
+@keyframes flowchevron{from{background-position:0 0,0 0}to{background-position:0 0,40px 0}}
 @media(prefers-reduced-motion:reduce){.btn.flow{animation:none}}
 
 .news-side{position:relative;z-index:2;flex:0 0 260px;padding:0;display:flex;flex-direction:column;gap:30px}
