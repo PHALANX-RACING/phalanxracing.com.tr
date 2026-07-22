@@ -131,25 +131,22 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
   border:1px solid var(--gold);color:var(--yellow);font-weight:700;
   text-shadow:0 1px 4px rgba(0,0,0,.9),0 0 10px rgba(0,0,0,.6);
   box-shadow:0 0 22px rgba(188,131,41,.4);
-  background-color:#150f08;
+  background-color:#17110a;
   background-image:
-    linear-gradient(rgba(8,6,3,.4),rgba(8,6,3,.4)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='30' viewBox='0 0 40 30'%3E%3Cpolygon points='0,0 20,0 40,15 20,30 0,30' fill='%23D8A93E'/%3E%3C/svg%3E");
+    linear-gradient(rgba(8,6,3,.35),rgba(8,6,3,.35)),
+    repeating-linear-gradient(45deg,#D8A93E 0,#D8A93E 14px,#17110a 14px,#17110a 28px);
   background-position:0 0,0 0;
-  background-size:100% 100%,40px 30px;
+  background-size:100% 100%,auto;
   background-repeat:no-repeat,repeat;
-  animation:flowchevron 2.6s linear infinite;
+  animation:flowstripe 2.6s linear infinite;
 }
 .btn.flow:hover{
   border-color:var(--yellow);box-shadow:0 0 28px rgba(188,131,41,.6);color:var(--yellow);
   background-image:
-    linear-gradient(rgba(8,6,3,.25),rgba(8,6,3,.25)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='30' viewBox='0 0 40 30'%3E%3Cpolygon points='0,0 20,0 40,15 20,30 0,30' fill='%23F0ED72'/%3E%3C/svg%3E");
-  background-position:0 0,0 0;
-  background-size:100% 100%,40px 30px;
-  background-repeat:no-repeat,repeat;
+    linear-gradient(rgba(8,6,3,.2),rgba(8,6,3,.2)),
+    repeating-linear-gradient(45deg,#F0ED72 0,#F0ED72 14px,#17110a 14px,#17110a 28px);
 }
-@keyframes flowchevron{from{background-position:0 0,0 0}to{background-position:0 0,40px 0}}
+@keyframes flowstripe{from{background-position:0 0,0 0}to{background-position:0 0,39.6px 0}}
 @media(prefers-reduced-motion:reduce){.btn.flow{animation:none}}
 
 .news-side{position:relative;z-index:2;flex:0 0 260px;padding:0;display:flex;flex-direction:column;gap:30px}
