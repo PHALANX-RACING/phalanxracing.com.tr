@@ -27,6 +27,7 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
           <a href="#road" class="btn solid">{h.ctaRoad}</a>
           <a href={L('/build-log')} class="btn">{h.ctaLog}</a>
         </div>
+        <a href={L('/takim')} class="btn flow">{h.teamCta}</a>
       </div>
 
       <aside class="news-side">
@@ -73,13 +74,6 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <section class="blk" id="team">
-    <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">{h.teamEyebrow}</span><h2>{h.teamHead}</h2></div>
-      <div class="team-cta"><a href={L('/takim')} class="btn solid big">{h.teamCta}</a></div>
     </div>
   </section>
 
@@ -132,6 +126,24 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
 .hero .tag{color:var(--muted);max-width:540px;margin:16px 0 30px;font-size:16px}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-start}
 
+.btn.flow{
+  display:inline-block;margin-top:14px;position:relative;overflow:hidden;
+  border:1px solid var(--gold);color:var(--cream);text-shadow:0 1px 3px rgba(0,0,0,.7);
+  box-shadow:0 0 22px rgba(188,131,41,.4);
+  background-color:#150f08;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpolygon points='0,0 17,0 34,17 17,34 0,34 12,17' fill='%23BC8329'/%3E%3C/svg%3E");
+  background-size:34px 34px;background-repeat:repeat;
+  animation:flowchevron 2.4s linear infinite;
+}
+.btn.flow:hover{
+  border-color:var(--yellow);box-shadow:0 0 28px rgba(188,131,41,.6);color:var(--cream);
+  background-color:#150f08;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpolygon points='0,0 17,0 34,17 17,34 0,34 12,17' fill='%23D8A93E'/%3E%3C/svg%3E");
+  background-size:34px 34px;background-repeat:repeat;
+}
+@keyframes flowchevron{from{background-position:0 0}to{background-position:34px 0}}
+@media(prefers-reduced-motion:reduce){.btn.flow{animation:none}}
+
 .news-side{position:relative;z-index:2;flex:0 0 260px;padding:0;display:flex;flex-direction:column;gap:30px}
 .news-blk{display:flex;flex-direction:column;gap:16px}
 .news-h{font-family:'Chakra Petch';text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:13px;color:var(--gold)}
@@ -163,9 +175,6 @@ a.news-item:hover .news-t{color:var(--yellow)}
 .phase .hl{color:var(--yellow);font-weight:600}
 .phase.mile{border-color:var(--yellow);background:rgba(240,237,114,.06)}
 .phase.mile .p{color:var(--yellow)}
-
-.team-cta{margin-top:8px}
-.btn.big{font-size:18px;padding:22px 46px}
 
 .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:26px}
 .tier{border:1px solid var(--line);padding:26px 22px;background:rgba(38,26,50,.35)}

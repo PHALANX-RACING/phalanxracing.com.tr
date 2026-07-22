@@ -9,7 +9,7 @@ const L = (p) => localizedPath(p, lang);
 ---
 <Base title={tp.title} desc={tp.desc} lang={lang}>
   <div class="wrap page">
-    <a class="back" href={`${L('/')}#team`}>{tp.back}</a>
+    <a class="back" href={L('/')}>{tp.back}</a>
     <span class="eyebrow">{tp.eyebrow}</span>
     <h1>{tp.h1}</h1>
     <p class="lead">{tp.lead}</p>
