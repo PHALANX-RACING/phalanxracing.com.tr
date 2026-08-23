@@ -17,6 +17,7 @@ export const groups = [
     { n: 'Ayberk Şahin', r: 'Kaptan · Lider', d: 'Makine Müh. (İng.) 2. Sınıf', lead: true },
     { n: 'Berra Yıldırım', r: 'Üye', d: 'Makine Müh. 3. Sınıf' },
     { n: 'Arda Ayden', r: 'Üye', d: 'Kimya Müh. 1. Sınıf' },
+    { n: 'Hüseyin Ali Çattık', r: 'Üye', d: 'Makine Müh. 3. Sınıf' },
   ]},
   { name: 'Elektronik', members: [
     { n: 'Burak Furkan Koç', r: 'Lider', d: 'Makine Müh. (İng.) 2. Sınıf', lead: true },
