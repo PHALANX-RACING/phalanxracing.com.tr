@@ -25,6 +25,7 @@ export const groups = [
     { n: 'Hasan Hacıahmetoğlu', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
     { n: 'Mehmet Fuat Mat', r: 'Üye', d: 'Makine Müh. 2. Sınıf' },
     { n: 'Ebru Tokatlı', r: 'EMC / İzolasyon', d: 'Makine Müh. (İng.) 2. Sınıf' },
+    { n: 'Mehmet Fatih Özgül', r: 'Üye', d: 'Mekatronik Müh. 4. Sınıf' },
     { n: 'Zehranur Çevik', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
   ]},
   { name: 'Şasi-Süspansiyon', members: [
