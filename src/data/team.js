@@ -27,6 +27,7 @@ export const groups = [
     { n: 'Ebru Tokatlı', r: 'EMC / İzolasyon', d: 'Makine Müh. (İng.) 2. Sınıf' },
     { n: 'Mehmet Fatih Özgül', r: 'Üye', d: 'Mekatronik Müh. 4. Sınıf' },
     { n: 'Zehranur Çevik', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
+    { n: 'Deniz Öçal', r: 'Üye', d: 'Elektrik-Elektronik Müh. 3. Sınıf · İstanbul Aydın Üniversitesi' },
   ]},
   { name: 'Şasi-Süspansiyon', members: [
     { n: 'İsmail Öztürk', r: 'Lider', d: 'End. Tasarım Müh. 3 · Makine Müh. ÇAP', lead: true },
@@ -87,6 +88,8 @@ export function deptEn(d) {
     .replace('Bilgisayar M\u00fch.', 'Computer Eng.')
     .replace('Mekatronik M\u00fch.', 'Mechatronics Eng.')
     .replace('End. Tasar\u0131m M\u00fch.', 'Industrial Design Eng.')
+    .replace('Elektrik-Elektronik M\u00fch.', 'Electrical-Electronics Eng.')
+    .replace('\u0130stanbul Ayd\u0131n \u00dcniversitesi', 'Istanbul Ayd\u0131n University')
     .replace('(\u0130ng.)', '(EN)')
     .replace('(Tr.)', '(TR)')
     .replace('\u00c7AP', 'Double Major')
