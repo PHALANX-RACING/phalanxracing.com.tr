@@ -24,10 +24,10 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
         <p class="sub">{h.sub}</p>
         <p class="tag">{h.tag}</p>
         <div class="cta">
+          <a href={L('/takim')} class="btn solid">{h.teamCta}</a>
           <a href="#road" class="btn solid">{h.ctaRoad}</a>
-          <a href={L('/build-log')} class="btn">{h.ctaLog}</a>
+          <a href={L('/build-log')} class="btn solid">{h.ctaLog}</a>
         </div>
-        <a href={L('/takim')} class="btn flow">{h.teamCta}</a>
       </div>
 
       <aside class="news-side">
@@ -127,26 +127,6 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
 .hero .sub{font-family:'Chakra Petch';font-size:clamp(15px,2.2vw,20px);color:var(--cream);letter-spacing:.04em}
 .hero .tag{color:var(--muted);max-width:540px;margin:16px 0 30px;font-size:16px}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-start}
-
-.btn.flow{
-  display:inline-block;margin-top:14px;position:relative;overflow:hidden;
-  border:1px solid var(--gold);color:var(--yellow);font-weight:700;
-  text-shadow:0 1px 4px rgba(0,0,0,.9),0 0 10px rgba(0,0,0,.6);
-  box-shadow:0 0 22px rgba(188,131,41,.4);
-  background-color:#17110a;
-  background-image:
-    linear-gradient(rgba(8,6,3,.35),rgba(8,6,3,.35)),
-    repeating-linear-gradient(45deg,#D8A93E 0,#D8A93E 14px,#17110a 14px,#17110a 28px);
-  background-position:0 0,0 0;
-  background-size:100% 100%,auto;
-  background-repeat:no-repeat,repeat;
-}
-.btn.flow:hover{
-  border-color:var(--yellow);box-shadow:0 0 28px rgba(188,131,41,.6);color:var(--yellow);
-  background-image:
-    linear-gradient(rgba(8,6,3,.2),rgba(8,6,3,.2)),
-    repeating-linear-gradient(45deg,#F0ED72 0,#F0ED72 14px,#17110a 14px,#17110a 28px);
-}
 
 .news-side{position:relative;z-index:2;flex:0 0 260px;padding:0;display:flex;flex-direction:column;gap:42px}
 @media(max-width:980px){
