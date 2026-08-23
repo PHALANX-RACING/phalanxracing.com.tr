@@ -45,6 +45,7 @@ export const groups = [
   ]},
   { name: 'Medya', members: [
     { n: 'Muhammed Yiğit Akgün', r: 'Medya & Tanıtım Lideri', d: 'End. Tasarım Müh. 2. Sınıf', lead: true },
+    { n: 'Eylül Kullar', r: 'Üye', d: 'End. Tasarım Müh. 3. Sınıf' },
     { n: 'Zehranur Çevik', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
   ]},
 ];
