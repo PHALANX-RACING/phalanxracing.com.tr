@@ -24,6 +24,7 @@ export const groups = [
     { n: 'Hasan Hacıahmetoğlu', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
     { n: 'Mehmet Fuat Mat', r: 'Üye', d: 'Makine Müh. 2. Sınıf' },
     { n: 'Ebru Tokatlı', r: 'EMC / İzolasyon', d: 'Makine Müh. (İng.) 2. Sınıf' },
+    { n: 'Zehranur Çevik', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
   ]},
   { name: 'Şasi-Süspansiyon', members: [
     { n: 'İsmail Öztürk', r: 'Lider', d: 'End. Tasarım Müh. 3 · Makine Müh. ÇAP', lead: true },
@@ -41,6 +42,7 @@ export const groups = [
   ]},
   { name: 'Medya', members: [
     { n: 'Muhammed Yiğit Akgün', r: 'Medya & Tanıtım Lideri', d: 'End. Tasarım Müh. 2. Sınıf', lead: true },
+    { n: 'Zehranur Çevik', r: 'Üye', d: 'Bilgisayar Müh. 2. Sınıf' },
   ]},
 ];
 
