@@ -119,7 +119,7 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
 .hero-in{position:relative;z-index:2;max-width:640px;text-align:left}
 @media(max-width:640px){
   .hero{min-height:auto}
-  .hero-row{padding:40px 20px;gap:34px}
+  .hero-row{padding:40px 20px;gap:46px}
 }
 
 .hero h1{font-size:clamp(44px,8vw,92px);line-height:.98;font-weight:700;text-transform:uppercase;margin:14px 0 8px}
@@ -148,18 +148,18 @@ const postSlug = (id) => id.replace(/^(tr|en)\//, '');
     repeating-linear-gradient(45deg,#F0ED72 0,#F0ED72 14px,#17110a 14px,#17110a 28px);
 }
 
-.news-side{position:relative;z-index:2;flex:0 0 260px;padding:0;display:flex;flex-direction:column;gap:30px}
+.news-side{position:relative;z-index:2;flex:0 0 260px;padding:0;display:flex;flex-direction:column;gap:42px}
 @media(max-width:980px){
   .news-side{flex:1 1 100%;width:100%}
 }
-.news-blk{display:flex;flex-direction:column;gap:16px}
-.news-h{font-family:'Chakra Petch';text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:13px;color:var(--gold)}
+.news-blk{display:flex;flex-direction:column;gap:24px}
+.news-h{font-family:'Chakra Petch';text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:13px;color:var(--gold);margin-bottom:2px}
 .news-item{display:block;color:inherit;text-decoration:none}
 .news-date{font-family:'Chakra Petch';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.news-t{font-size:15px;font-weight:600;color:var(--cream);margin-top:2px;transition:color .2s}
+.news-t{font-size:15px;font-weight:600;color:var(--cream);margin-top:4px;transition:color .2s}
 a.news-item:hover .news-t{color:var(--yellow)}
-.news-s{font-size:13px;color:var(--muted);margin-top:3px}
-.news-all{align-self:flex-start;font-family:'Chakra Petch';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+.news-s{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5}
+.news-all{align-self:flex-start;margin-top:4px;font-family:'Chakra Petch';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none}
 .news-all:hover{color:var(--yellow)}
 
 .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
